@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="25px" viewBox="0 0 15 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>prev</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="prev" transform="translate(7.500000, 12.500000) rotate(180.000000) translate(-7.500000, -12.500000) translate(1.000000, 1.000000)" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2">
+            <path d="M2.04401517,1.11466494 C1.69571783,0.790118094 1.1529577,0.799694463 0.816326081,1.13632608 C0.479694463,1.4729577 0.470118094,2.01571783 0.79466494,2.36401517 L10.2237233,11.7930735 L0.79466494,20.8921148 C0.470118094,21.2404122 0.479694463,21.7831723 0.816326081,22.1198039 C1.1529577,22.4564356 1.69571783,22.4660119 2.04401517,22.1414651 L12.5574152,11.7930735 L2.04401517,1.11466494 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
