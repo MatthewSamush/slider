@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useRef, useState} from "react"
 import Card from "./SliderCard";
 
 const RadioButtons = ({onChange, currentElement}) => {
@@ -15,29 +15,31 @@ const RadioButtons = ({onChange, currentElement}) => {
 
 export default function SliderContent({cards}) {
     const [currentCard, setCurrentCard] = useState(0);
-    const [loop,setLoop] = useState(false);
-    const [slideSpeed,setSlideSpeed] = useState("all 0.5s");
+    const [loop, setLoop] = useState(false);
+    const [slideSpeed, setSlideSpeed] = useState("all 0.5s");
+    const cardBox = useRef(null);
     useEffect(() => {
-                document.getElementById("cardBox").style.marginLeft = -(document.getElementsByClassName("card").item(0).clientWidth * (currentCard + 1)) + "px";
-                document.getElementById("cardBox").style.transition = slideSpeed;
+        cardBox.current.style.marginLeft = -(document.getElementsByClassName("card").item(0).clientWidth * (currentCard + 1)) + "px";
+        cardBox.current.style.transition = slideSpeed;
     }, [currentCard]);
     useEffect(() => {
-            document.getElementById("cardBox").style.marginLeft = -(document.getElementsByClassName("card").item(0).clientWidth * (currentCard + 1)) + "px";
-            document.getElementById("cardBox").style.transition = slideSpeed;
+        cardBox.current.style.marginLeft = -(document.getElementsByClassName("card").item(0).clientWidth * (currentCard + 1)) + "px";
+        cardBox.current.style.transition = slideSpeed;
         return setLoop(false);
-    },[loop]);
+    }, [loop]);
 
     const handleRadioChange = (event) => {
         setCurrentCard(parseInt(event.target.value));
+        setSlideSpeed("all 0.5s");
     }
     const handleNextClick = () => {
-        if (currentCard === cards.length-1) {
-            setCurrentCard(currentCard+1)
+        if (currentCard === cards.length - 1) {
+            setCurrentCard(currentCard + 1)
             setLoop(true);
-            setTimeout(()=>{
+            setTimeout(() => {
                 setSlideSpeed("all 0.0s");
                 return setCurrentCard(0);
-            },501);
+            }, 501);
             setSlideSpeed("all 0.5s");
         } else {
             setCurrentCard(currentCard + 1);
@@ -46,12 +48,12 @@ export default function SliderContent({cards}) {
     }
     const handleBackClick = () => {
         if (currentCard === 0) {
-            setCurrentCard(currentCard-1)
+            setCurrentCard(currentCard - 1)
             setLoop(true);
-            setTimeout(()=>{
+            setTimeout(() => {
                 setSlideSpeed("all 0.0s");
                 setCurrentCard(3);
-            },501);
+            }, 501);
             setSlideSpeed("all 0.5s");
         } else {
             setCurrentCard(currentCard - 1);
@@ -68,7 +70,7 @@ export default function SliderContent({cards}) {
                     </button>
                 </div>
                 <div className="slider">
-                    <div id="cardBox" className="cardBox">
+                    <div ref={cardBox} className="cardBox">
                         <Card image={cards[3].content}/>
                         <Card image={cards[0].content}/>
                         <Card image={cards[1].content}/>
