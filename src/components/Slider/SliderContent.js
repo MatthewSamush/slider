@@ -12,12 +12,16 @@ const RadioButtons = ({onChange, currentElement}) => {
     )
 }
 
-
 export default function SliderContent({cards}) {
+
     const [currentCard, setCurrentCard] = useState(0);
     const [loop, setLoop] = useState(false);
     const [slideSpeed, setSlideSpeed] = useState("all 0.5s");
     const cardBox = useRef(null);
+    const [startX,setStartX] = useState(null);
+    const [diffX,setDiffX] = useState(0);
+    const [shiftX,setShiftX] = useState(0)
+
     useEffect(() => {
         cardBox.current.style.marginLeft = -(document.getElementsByClassName("card").item(0).clientWidth * (currentCard + 1)) + "px";
         cardBox.current.style.transition = slideSpeed;
@@ -39,7 +43,7 @@ export default function SliderContent({cards}) {
             setTimeout(() => {
                 setSlideSpeed("all 0.0s");
                 return setCurrentCard(0);
-            }, 501);
+            }, 500);
             setSlideSpeed("all 0.5s");
         } else {
             setCurrentCard(currentCard + 1);
@@ -53,11 +57,33 @@ export default function SliderContent({cards}) {
             setTimeout(() => {
                 setSlideSpeed("all 0.0s");
                 setCurrentCard(3);
-            }, 501);
+            }, 500);
             setSlideSpeed("all 0.5s");
         } else {
             setCurrentCard(currentCard - 1);
             setSlideSpeed("all 0.5s");
+        }
+    };
+
+    const handleSwipeStart = (event) => {
+        setStartX(event.touches[0].clientX);
+    }
+    const handleSwipeMove = (event) => {
+        setDiffX(event.touches[0].clientX);
+        if(startX-diffX === 50 || -50) {
+            setShiftX(startX-diffX);
+        }
+    }
+
+    const handleSwipeEnd = () => {
+        if(shiftX >= 50){
+            handleNextClick();
+            setShiftX(0);
+        } else if (shiftX<= -50){
+            handleBackClick();
+            setShiftX(0);
+        } else if (shiftX===startX){
+            return;
         }
     }
 
@@ -70,7 +96,7 @@ export default function SliderContent({cards}) {
                     </button>
                 </div>
                 <div className="slider">
-                    <div ref={cardBox} className="cardBox">
+                    <div ref={cardBox} onTouchStart={handleSwipeStart} onTouchMove={handleSwipeMove} onTouchEnd={handleSwipeEnd} className="cardBox">
                         <Card image={cards[3].content}/>
                         <Card image={cards[0].content}/>
                         <Card image={cards[1].content}/>

@@ -6,8 +6,8 @@ $secondary: #f5f5f5;
 .mainWrapper {
   background-color: $bgColor;
   margin: 50px auto auto;
-  width:800px;
-  height:600px;
+  max-width:500px;
+  max-height:200px;
 }
 .sliderWrapper{
   display:flex;
@@ -16,31 +16,30 @@ $secondary: #f5f5f5;
 .slider{
   position:absolute;
   margin:0 50px 0 50px;
-  width: 700px;
+  width: 400px;
   display:flex;
   background-color:$white;
   overflow: hidden;
 }
 .cardBox{
   display: flex;
-  flex-direction: row;
+  margin-left: -400px;
   width: fit-content;
   justify-content: space-between;
-  margin-left:-700px;
   transition: 0.5s;
 }
 .card{
-  width:100%;
-  height:400px;
+  width:400px;
+  height:200px;
   background-color: $secondary;
 }
 .cardImage{
-  width:700px;
-  height:400px;
+  width:400px;
+  height:200px;
 }
 .buttonBox{
   width:50px;
-  height:400px;
+  height:200px;
   justify-content: center;
   font-size:24px;
   color:$white;
@@ -51,7 +50,7 @@ $secondary: #f5f5f5;
   color: $white;
   border:  0;
   padding: 10px;
-  height: 100%;
+  height: 200px;
 }
 .radioButtonBox {
   display:flex;
@@ -65,6 +64,46 @@ $secondary: #f5f5f5;
 .radioButton:checked {
   border:1px solid $white;
   color:$white;
+}
+@media (max-width: 550px){
+  .mainWrapper {
+    background-color: $bgColor;
+    margin: 50px auto auto;
+    max-width:450px;
+    max-height:200px;
+  }
+  .slider{
+    width: 350px;
+  }
+  .cardBox{
+    margin-left: -350px;
+  }
+  .card{
+    width:350px;
+  }
+  .cardImage{
+    width:350px;
+  }
+}
+@media (max-width: 450px){
+  .mainWrapper {
+    background-color: $bgColor;
+    margin: 50px auto auto;
+    max-width:350px;
+    max-height:200px;
+  }
+  .slider{
+    width: 250px;
+  }
+  .cardBox{
+    margin-left: -250px;
+  }
+  .card{
+    width:250px;
+  }
+  .cardImage{
+    width:250px;
+  }
 }
 *{
   margin: 0;
