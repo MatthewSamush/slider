@@ -97,12 +97,12 @@ export default function SliderContent({cards}) {
                 </div>
                 <div className="slider">
                     <div ref={cardBox} onTouchStart={handleSwipeStart} onTouchMove={handleSwipeMove} onTouchEnd={handleSwipeEnd} className="cardBox">
-                        <Card image={cards[3].content}/>
-                        <Card image={cards[0].content}/>
-                        <Card image={cards[1].content}/>
-                        <Card image={cards[2].content}/>
-                        <Card image={cards[3].content}/>
-                        <Card image={cards[0].content}/>
+                        <Card image={cards[3].content} name={cards[3].name}/>
+                        <Card image={cards[0].content} name={cards[0].name}/>
+                        <Card image={cards[1].content} name={cards[1].name}/>
+                        <Card image={cards[2].content} name={cards[2].name}/>
+                        <Card image={cards[3].content} name={cards[3].name}/>
+                        <Card image={cards[0].content} name={cards[0].name}/>
                     </div>
                 </div>
                 <div className="rightBox buttonBox" onClick={handleNextClick}>
