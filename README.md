@@ -14,7 +14,7 @@ Slider using only React Core Library. Stack: HTML,CSS/SASS,Webpack,Node,yarn/npm
     - Open terminal and run following command: git clone https://github.com/MatthewSamush/slider.git
     ------------------------------------------------------------------------------------------------
     
-    - Open Terminal in your IDEA and run @npm install or @yarn install.
+    - Open Terminal in your IDEA and run: | npm install OR yarn install |
     - After all the packages installed you are ready to go.
-    - Run @npm start or @yarn start and find the string in Terminal which contains "Project is running at" - the localhost port where you can see the App.
+    - Run: | npm start OR yarn start | and find the string in Terminal which contains "Project is running at" - the localhost port where you can see the App.
     
