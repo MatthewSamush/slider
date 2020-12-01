@@ -26,7 +26,9 @@ export default function SliderCard() {
     ]
     return (
         <div className="mainWrapper">
-            <SliderContent cards={cards}/>
+            <SliderContent>
+                {cards}
+            </SliderContent>
         </div>
     )
 }

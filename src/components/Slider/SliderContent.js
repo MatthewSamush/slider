@@ -12,7 +12,7 @@ const RadioButtons = ({onChange, currentElement}) => {
     )
 }
 
-export default function SliderContent({cards}) {
+export default function SliderContent({children}) {
 
     const [currentCard, setCurrentCard] = useState(0);
     const [loop, setLoop] = useState(false);
@@ -37,7 +37,7 @@ export default function SliderContent({cards}) {
         setSlideSpeed("all 0.5s");
     }
     const handleNextClick = () => {
-        if (currentCard === cards.length - 1) {
+        if (currentCard === children.length - 1) {
             setCurrentCard(currentCard + 1)
             setLoop(true);
             setTimeout(() => {
@@ -60,6 +60,7 @@ export default function SliderContent({cards}) {
             }, 500);
             setSlideSpeed("all 0.5s");
         } else {
+            console.log(children);
             setCurrentCard(currentCard - 1);
             setSlideSpeed("all 0.5s");
         }
@@ -97,12 +98,12 @@ export default function SliderContent({cards}) {
                 </div>
                 <div className="slider">
                     <div ref={cardBox} onTouchStart={handleSwipeStart} onTouchMove={handleSwipeMove} onTouchEnd={handleSwipeEnd} className="cardBox">
-                        <Card image={cards[3].content} name={cards[3].name}/>
-                        <Card image={cards[0].content} name={cards[0].name}/>
-                        <Card image={cards[1].content} name={cards[1].name}/>
-                        <Card image={cards[2].content} name={cards[2].name}/>
-                        <Card image={cards[3].content} name={cards[3].name}/>
-                        <Card image={cards[0].content} name={cards[0].name}/>
+                        <Card image={children[3].content} name={children[3].name}/>
+                        <Card image={children[0].content} name={children[0].name}/>
+                        <Card image={children[1].content} name={children[1].name}/>
+                        <Card image={children[2].content} name={children[2].name}/>
+                        <Card image={children[3].content} name={children[3].name}/>
+                        <Card image={children[0].content} name={children[0].name}/>
                     </div>
                 </div>
                 <div className="rightBox buttonBox" onClick={handleNextClick}>
