@@ -60,7 +60,6 @@ export default function SliderContent({children}) {
             }, 500);
             setSlideSpeed("all 0.5s");
         } else {
-            console.log(children);
             setCurrentCard(currentCard - 1);
             setSlideSpeed("all 0.5s");
         }
