@@ -2,8 +2,8 @@ const path = require('path');
 module.exports = {
     entry: './src/index.js',
     output: {
-        path: path.resolve('dist'),
-        filename: "bundle.js"
+        filename: "bundle.js",
+        path: path.join(__dirname,"public")
     },
     module: {
         rules: [
@@ -14,7 +14,6 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         presets: ['@babel/preset-env'],
-                        plugins: ['@babel/plugin-proposal-object-rest-spread']
                     }
                 },
             },
@@ -35,5 +34,9 @@ module.exports = {
                 ],
             }
         ]
+    },
+
+    devServer: {
+        contentBase: path.join(__dirname,"public")
     }
 };

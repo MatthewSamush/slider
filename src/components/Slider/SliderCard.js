@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function SliderCard({image, name}){
+export default function SliderCard({content}){
     return(
-        <div className="card">
-            <img src={image} alt={name} className="cardImage"/>
-        </div>
+            <div className="sliderWrapper__card">
+                {content}
+            </div>
     )
 }
